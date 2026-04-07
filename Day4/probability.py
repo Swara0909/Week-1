@@ -31,5 +31,4 @@ p_spam = df['spam'].mean()
 
 # P(link = 1 | spam = 1)
 p_link_given_spam = df[df['spam'] == 1]['contains_link'].mean()
-
 print(p_spam, p_link_given_spam)
