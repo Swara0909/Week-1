@@ -39,7 +39,7 @@ print(np.linalg.matrix_rank(A))
 print(np.linalg.trace(A))
 
 # Norm of a matrix
-print(np.linalg.norm(A))
+print("Normalization",np.linalg.norm(A))
 
 # Z-Score Normalization
 data = np.array([10, 20, 30, 40, 50])
