@@ -49,3 +49,29 @@ async def create_todo(db: db_dependency, todo_request: ToDoRequest):
 
     db.add(todo_model)
     db.commit()
+
+async def update_todo(db: db_dependency, 
+                     todo_id: int, 
+                     todo_request: ToDoRequest):
+
+    todo_model = db.query(Todos).filter(Todos.id == todo_id).first()
+
+    if todo_model is None:
+        raise HTTPException(status_code=404, detail='Todo not found.')
+
+    todo_model.title = todo_request.title
+    todo_model.description = todo_request.description
+    todo_model.priority = todo_request.priority
+    todo_model.complete = todo_request.complete
+
+@app.delete("/todo/{todo_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_todo(db: db_dependency, todo_id: int = Path(gt=0)):
+
+    todo_model = db.query(Todos).filter(Todos.id == todo_id).first()
+
+    if todo_model is None:
+        raise HTTPException(status_code=404, detail='Todo not found.')
+
+    db.query(Todos).filter(Todos.id == todo_id).delete()
+
+    db.commit()
