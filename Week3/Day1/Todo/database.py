@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 #Used to create models (tables) in Python
 from sqlalchemy.ext.declarative import declarative_base
 
-SQLALCHEMY_DATABASE_URL="sqlite:///./todos.db"
+SQLALCHEMY_DATABASE_URL="sqlite:///./todosapp.db"
 
 #This actually connects to the database
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={'check_same_thread': False}) 
