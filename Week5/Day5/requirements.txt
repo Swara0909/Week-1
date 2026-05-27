@@ -1,0 +1,19 @@
+# Enterprise Resume Screening Assistant — Dependencies
+ 
+# Core LangChain
+langchain
+langchain-community
+langchain-core
+langchain-ollama
+langchain-text-splitters
+ 
+# Vector DB
+chromadb
+ 
+# PDF loading
+pypdf
+ 
+# Embeddings (via Ollama — install separately: https://ollama.com)
+# Run these before starting:
+#   ollama pull llama3
+#   ollama pull nomic-embed-text
