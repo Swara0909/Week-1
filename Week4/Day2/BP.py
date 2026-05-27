@@ -17,4 +17,3 @@ def intialize_parameters(layer_dims):
     parameters['W' + str(l)] = np.ones((layer_dims[l-1],layer_dims[l]))*0.1
     parameters['b' + str(l)] = np.zeros((layer_dims[l],1))
   return parameters
-
